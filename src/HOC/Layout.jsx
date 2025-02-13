@@ -12,7 +12,7 @@ const Layout = () => {
         <div className="col-span-2 ">
           <SideBar />
         </div>
-        <div className="relative col-span-10 overflow-scroll pb-44 bg-gray-300">
+        <div className="relative col-span-10 overflow-scroll pb-44 bg-white">
           <Outlet />
         </div>
       </div>

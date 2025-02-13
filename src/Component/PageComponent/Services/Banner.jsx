@@ -1,33 +1,17 @@
-// import React from 'react'
-
-// const Contact = () => {
-//   return (
-//     <div className='h-full w-full'>
-//       <div className='h-screen'>hi</div>
-//       <div className='h-screen'>hee</div>
-//     </div>
-//   )
-// }
-
-// export default Contact
-
 import React from "react";
-
-
-
 import { Formik, Form, Field, ErrorMessage } from "formik";
 
 import { MdOutlineBrowserUpdated } from "react-icons/md";
 
-const Contact = () => {
+const Banner = () => {
   
   
   return (
     
-      <div className="h-screen w-full">
+      <div className="h-fit w-full">
         <div className="mt-12 flex flex-col gap-6 m-6  ">
           <h1 className="font-medium text-xl">
-           Contact Us: Title, Image
+           Service Banner: Title, Image
           </h1>
 
           <Formik
@@ -47,7 +31,7 @@ const Contact = () => {
                       </label>
                       <input
                         type="text"
-                        placeholder="Contact Us Title"
+                        placeholder="Service Banner Title"
                         className=" border border-black p-2 "
                       />
                     </div>
@@ -111,4 +95,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default Banner;

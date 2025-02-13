@@ -34,7 +34,7 @@ const Best = ({ placeholder }) => {
         >
           {({ setFieldValue, values }) => {
             return (
-              <Form className=" bg-gray-100 px-12 py-6 flex flex-col gap-6 p-2 shadow-lg rounded-xl">
+              <Form className="  px-12 py-6 flex flex-col gap-6 p-2 shadow-lg rounded-xl">
                 <div className="flex flex-col gap-6">
                   <div className="flex flex-col">
                     <label className="text-xl font-medium" htmlFor="Title">
@@ -164,16 +164,14 @@ const Best = ({ placeholder }) => {
                     accept=".jpg"
                   />
                 </div>
-<div className="flex items-center justify-center">
-    
-                <button
-                  type="button"
-                  onClick={() => setFieldValue(val.name, "")}
-                  className="text-green-500 border border-black rounded-lg w-fit h-fit cursor-pointer p-2 capitalize mt-2"
-                >
-                  Submit
-                </button>
-</div>
+                <div className="flex items-center justify-center">
+                  <button
+                    type="button"
+                    className="text-green-500 border border-black rounded-lg w-fit h-fit cursor-pointer p-2 capitalize mt-2"
+                  >
+                    Submit
+                  </button>
+                </div>
               </Form>
             );
           }}

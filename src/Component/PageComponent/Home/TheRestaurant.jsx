@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useRef, useMemo } from "react";
 import JoditEditor from "jodit-react";
 
+
 import { Formik, Form, Field, ErrorMessage } from "formik";
 
 import { MdOutlineBrowserUpdated } from "react-icons/md";
@@ -12,18 +13,21 @@ const TheRestaurant = ({ placeholder }) => {
 
   const config = useMemo(
     () => ({
-      readonly: false, // all options from https://xdsoft.net/jodit/docs/,
+      readonly: false, 
       placeholder: placeholder || "Start typings...",
     }),
     [placeholder]
   );
   return (
     
-      <div className="h-full w-full">
+      <div className="h-full bg-white w-full">
         <div className="mt-12 flex flex-col gap-6 m-6  ">
+          <div className="flex flex-col">
           <h1 className="font-medium text-xl">
-            The Restaurant: Title , Description, Signature
+            About Restaurant
           </h1>
+          <h2 className="text-gray-400">Title, Description, Image, Signature</h2>
+          </div>
 
           <Formik
             className=""
@@ -34,9 +38,9 @@ const TheRestaurant = ({ placeholder }) => {
           >
             {({ setFieldValue, values }) => {
               return (
-                <Form className=" bg-gray-100  flex flex-col gap-6 px-12 py-6 shadow-lg rounded-xl">
+                <Form className="   flex flex-col gap-6 px-12 py-6  ">
                   <div className="flex flex-col gap-6">
-                    <div className="flex flex-col">
+                    <div className="flex  gap-2 flex-col">
                       <label className="text-xl font-medium" htmlFor="Title">
                         Title:
                       </label>
@@ -46,7 +50,7 @@ const TheRestaurant = ({ placeholder }) => {
                         className=" border border-black p-2 "
                       />
                     </div>
-                    <div className="flex flex-col  ">
+                    <div className="flex gap-2 flex-col  ">
                       <label
                         className="text-xl font-medium "
                         htmlFor="Description"
@@ -132,7 +136,7 @@ const TheRestaurant = ({ placeholder }) => {
 
                   <button
                     type="button"
-                    onClick={() => setFieldValue(val.name, "")}
+                   
                     className="text-green-500  border border-black rounded-lg w-fit h-fit cursor-pointer p-2 capitalize mt-2"
                   >
                     Submit

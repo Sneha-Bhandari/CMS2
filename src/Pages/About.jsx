@@ -11,7 +11,7 @@ const About = () => {
   
   return (
     
-      <div className="h-screen w-full">
+      <div className="h-fit w-full">
         <div className="mt-12 flex flex-col gap-6 m-6  ">
           <h1 className="font-medium text-xl">
             About Section: Title, Image
@@ -80,7 +80,7 @@ const About = () => {
 
                   <button
                     type="button"
-                    onClick={() => setFieldValue(val.name, "")}
+                    // onClick={() => setFieldValue(val.name, "")}
                     className="text-green-500  border border-black rounded-lg w-fit h-fit cursor-pointer p-2 capitalize mt-2"
                   >
                     Submit

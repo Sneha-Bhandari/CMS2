@@ -80,7 +80,7 @@ const News = () => {
 
                   <button
                     type="button"
-                    onClick={() => setFieldValue(val.name, "")}
+                   
                     className="text-green-500  border border-black rounded-lg w-fit h-fit cursor-pointer p-2 capitalize mt-2"
                   >
                     Submit
