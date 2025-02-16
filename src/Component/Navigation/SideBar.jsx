@@ -23,7 +23,7 @@ const SideBar = () => {
         {navitems.map((val, i) => (
           <div
             key={i}
-            className="text-black text-xl font-medium hover:underline"
+            className="text-black text-base  hover:underline "
           >
             <div className="flex gap-3  ">
 

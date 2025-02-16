@@ -1,60 +1,46 @@
-import React from "react";
+import React, { useState } from 'react';
+import { IoGlobeOutline } from "react-icons/io5";
+import { CgProfile } from "react-icons/cg";
 import { IoRestaurantOutline } from "react-icons/io5";
-import { IoGlobe } from "react-icons/io5";
-import { GrRestaurant } from "react-icons/gr";
-import { useState } from "react";
 
-const Header = () => {
-  const [dropDown, setDropdown] = useState(false);
+function Header() {
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
   return (
-    <div className="">
-
- {dropDown && (
-  <div onClick={()=>setDropdown(false)}  className=" absolute z-10  h-full w-full flex justify-end ">
-
-              <div  className=" h-fit mt-20 mr-20 w-48 rounded-md   flex flex-col  text-xl   ">
-                <div className="flex flex-col text-xl text-black px-4 py-4 gap-2 text-sm items-start  transition-all duration-700 delay-75 translate-x-5  ease-in-out ">
-                <button>
-                  <h1>About Profile</h1>
-                </button>
-                <button>
-                  <h1>Logout</h1>
-                </button>
-                </div>
+    <div className='w-full bg-gray-300 h-20 flex items-center justify-center'>
+       {isDropdownOpen && (
+              <div className='absolute z-50 transition-all duration-500 ease-in-out delay-75 translate-y-10 right-10 mt-4 top-10 w-48 p-4 rounded-lg border flex flex-col gap-4  bg-gray-100' >
+                <div className='w-fit h-fit  cursor-pointer'>About Profile</div>
+                <button className='w-fit h-fit p-2  bg-green-300 rounded-lg text-whiterounded-lg cursor-pointer'>Log out</button>
               </div>
-  </div>
             )}
-      <div className="  flex  items-center h-20 bg-gray-200 justify-between px-10 mx-auto w-full">
-        <div className="text-3xl">
-          <IoRestaurantOutline />{" "}
-        </div>
-        <div className="flex gap-12">
-          <div className="items-center flex justify-center">
-            <button className=" cursor-pointer flex gap-2 border-2 border-orange-300 px-3 rounded-xl hover:text-white hover:bg-orange-500 hover:border-white transition-all duration-700 delay-75 ease-in-out py-1">
-              <div className="text-xl  ">
-                <IoGlobe />
-              </div>
-              <div>Visit Site</div>
-            </button>
+      <div className='w-11/12 mx-auto flex items-center justify-between'>
+        <div className='text-3xl text-black'><IoRestaurantOutline /></div>
+
+        <div className='grid grid-cols-2 gap-4'>
+          <div className='flex gap-1 items-center'>
+            <div className='text-2xl'><IoGlobeOutline /></div>
+            <div className='cursor-pointer'>Visit site</div>
           </div>
-
-          <div className="relative ">
-            <div
-              onClick={() => setDropdown(prev=>!prev)}
-              className="text-xl cursor-pointer py-1 px-2 flex gap-2  font-medium"
+          
+          <div className='relative'>
+            <button 
+              className='flex gap-1 items-center cursor-pointer'
+              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+              onBlur={()=>{
+                setIsDropdownOpen(false)
+              }}
             >
-              <h1 className="py-1">
-                <GrRestaurant />{" "}
-              </h1>
-              <h1> Gourmet Restaurant</h1>
-            </div>
-
+              <div className='text-2xl'><CgProfile /></div>
+              <div>Gourmet Resturant</div>
+            </button>
+            
            
           </div>
         </div>
       </div>
     </div>
   );
-};
+}
 
 export default Header;
