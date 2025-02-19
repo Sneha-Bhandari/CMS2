@@ -1,6 +1,5 @@
-
-
 import Best from "../Component/PageComponent/Home/Best";
+import Blog from "../Component/PageComponent/Home/Blog";
 import HeroSection from "../Component/PageComponent/Home/HeroSection";
 import TheRestaurant from "../Component/PageComponent/Home/TheRestaurant";
 
@@ -12,6 +11,7 @@ const Home = () => {
       {/* <HeroSection/> */}
       <TheRestaurant/>
       <Best/>
+      <Blog/>
     </div>
   );
 };

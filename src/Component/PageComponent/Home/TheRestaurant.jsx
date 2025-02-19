@@ -34,39 +34,42 @@ const TheRestaurant = ({ placeholder }) => {
   );
   return (
     <div className="h-full bg-white w-full">
-      <div className="mt-12 flex flex-col gap-6 mx-6  ">
-        <div className=" text-xl flex flex-col px-6 ">
-          <h1 className="font-semibold text-2xl">About Restaurant</h1>
-          <h2 className="text-gray-400">
+      <div className="grid py-10 px-3 grid-cols-5 gap-6 ">
+        <div className="flex flex-col pt-5  ">
+          <h1 className="font-semibold text-xl">About Restaurant</h1>
+          <h2 className="text-gray-400 text-sm">
             Title, Description, Image, Signature
           </h2>
         </div>
 
-        <Formik
-          className=""
+ <div className="col-span-4 border border-gray-200">
+ <Formik
           initialValues={{
             Photo: "",
             Signature: "",
+            Title:"",
+            Description:""
           }}
         >
           {({ setFieldValue, values }) => {
             return (
               <Form className="   flex flex-col gap-6 px-6 py-6  ">
-                <div className="text-xl font-medium ">Edit Content</div>
+                <div className="text-2xl font-bold text-orange-400 ">Edit Content</div>
                 <div className="flex flex-col gap-6">
                   <div className="flex  gap-2 flex-col">
-                    <label className="text-xl font-medium" htmlFor="Title">
+                    <label className="text-base font-semibold" htmlFor="Title">
                       Title:
                     </label>
-                    <input
+                    <Field
                       type="text"
+                      name='Title'
                       placeholder="Restaurant Title"
-                      className=" border border-black p-2 "
+                      className=" border border-gray-400 rounded-sm outline-none p-2 "
                     />
                   </div>
                   <div className="flex gap-2 flex-col  ">
                     <label
-                      className="text-xl font-medium "
+                      className="text-base font-semibold "
                       htmlFor="Description"
                     >
                       Description:
@@ -82,16 +85,16 @@ const TheRestaurant = ({ placeholder }) => {
                     />
                   </div>
                 </div>
-                <div className="flex flex-col gap-2 text-xl font-medium items-start  ">
+                <div className="grid grid-cols-2 gap-4 text-xl font-medium items-start  ">
                   {/* image */}
-                  <div>
-                    {" "}
+                 <div className="grid gap-2">
+                 <div className="font-semibold text-base">
                     <h1 className=" "> Image:</h1>
                   </div>
 
                   <label htmlFor="photo">
                     {values.Photo.length < 1 ? (
-                      <div className="flex items-center justify-center  bg-gray-200  h-24 w-24">
+                      <div className="flex items-center text-2xl justify-center  bg-gray-200  h-44 w-full">
                         {" "}
                         <MdOutlineBrowserUpdated />
                       </div>
@@ -99,7 +102,7 @@ const TheRestaurant = ({ placeholder }) => {
                       <div>
                         <img
                           src={URL.createObjectURL(values.Photo)}
-                          className="h-24 w-24"
+                          className="h-44 w-full"
                         />
                       </div>
                     )}
@@ -115,13 +118,15 @@ const TheRestaurant = ({ placeholder }) => {
                     className="hidden"
                     accept=".jpg"
                   />
+                 </div>
                   {/* Signature */}
-                  <div className=" flex flex-col">
-                    <h1 className=" ">Signature:</h1>
+                 <div className="grid gap-2 text-base">
+                 <div className=" flex flex-col">
+                    <h1 className="font-semibold">Signature:</h1>
                   </div>
                   <label htmlFor="sign">
                     {values.Signature.length < 1 ? (
-                      <div className="flex items-center justify-center  bg-gray-200  h-24 w-24">
+                      <div className="flex items-center text-2xl justify-center  bg-gray-200  h-44 w-full">
                         {" "}
                         <MdOutlineBrowserUpdated />
                       </div>
@@ -129,7 +134,7 @@ const TheRestaurant = ({ placeholder }) => {
                       <div>
                         <img
                           src={URL.createObjectURL(values.Signature)}
-                          className="h-24 w-24"
+                          className="h-44 w-full"
                         />
                       </div>
                     )}
@@ -145,11 +150,15 @@ const TheRestaurant = ({ placeholder }) => {
                     className="hidden"
                     accept=".png"
                   />
+                 </div>
                 </div>
 
                 <button
                   type="button"
-                  className="text-green-500 text-base hover:bg-green-300 hover:text-black transition-all delay-75 duration-700 ease-in-out border border-black rounded-lg w-fit h-fit cursor-pointer p-2  mt-2"
+                  className="text-green-500 text-base hover:bg-green-500 
+                  hover:text-white transition-all delay-75 duration-700 
+                  ease-in-out border border-green-500 rounded-lg w-fit h-fit 
+                  cursor-pointer p-2  mt-2"
                 >
                   Save Changes
                 </button>
@@ -157,8 +166,9 @@ const TheRestaurant = ({ placeholder }) => {
             );
           }}
         </Formik>
+ </div>
 
-        <div className="overflow-x-auto mx-6">
+        {/* <div className="overflow-x-auto mx-6">
         {openDelete && (
         <div className="fixed inset-0  bg-opacity-40  h-screen flex justify-center items-center w-screen z-10">
           <div className="bg-gray-200 p-12 flex flex-col gap-6  rounded-lg shadow-lg ">
@@ -225,7 +235,7 @@ const TheRestaurant = ({ placeholder }) => {
               ))}
             </tbody>
           </table>
-        </div>
+        </div> */}
       </div>
     </div>
   );

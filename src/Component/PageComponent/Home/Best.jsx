@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useRef, useMemo } from "react";
 import JoditEditor from "jodit-react";
 
-import { Formik, Form } from "formik";
+import { Formik, Form, Field } from "formik";
 
 import { MdOutlineBrowserUpdated } from "react-icons/md";
 
@@ -18,37 +18,46 @@ const Best = ({ placeholder }) => {
     [placeholder]
   );
   return (
-    <div className="h-full w-full  mt-24">
-      <div className="mt-12 flex flex-col gap-6 m-6  ">
-        <h1 className="font-medium text-xl ">
-          The Best & Good: Title , Description, Image1, Image2, Image3
-        </h1>
+    <div className="h-full w-full ">
+      <div className="grid px-3 grid-cols-5 gap-6 py-10 ">
+        <div className="flex flex-col pt-5">
 
-        <Formik
+          <div className="text-xl font-semibold">
+          The Best & Good: 
+          </div>
+          <div className="text-sm text-gray-500">Title , Description, Image</div>
+        </div>
+
+       <div className="col-span-4 border border-gray-200">
+       <Formik
           className=""
           initialValues={{
-            Image1: "",
-            Image2: "",
-            Image3: "",
+            Title:"",
+            Description:"",
+            Image: "",
+           
           }}
         >
           {({ setFieldValue, values }) => {
             return (
-              <Form className="  px-12 py-6 flex flex-col gap-6 p-2 shadow-lg rounded-xl">
+              <Form className="  px-6 py-6 flex flex-col gap-6 ">
+                <div className="text-2xl font-bold text-orange-400 ">Edit Content</div>
+
                 <div className="flex flex-col gap-6">
-                  <div className="flex flex-col">
-                    <label className="text-xl font-medium" htmlFor="Title">
+                  <div className="flex flex-col gap-2">
+                    <label className="text-base font-semibold" htmlFor="Title">
                       Title:
                     </label>
-                    <input
+                    <Field
                       type="text"
+                      name="Title"
                       placeholder="Best and Food Title"
-                      className=" border border-black p-2 "
+                      className=" border border-gray-400  rounded-sm outline-none p-2 "
                     />
                   </div>
-                  <div className="flex flex-col  ">
+                  <div className="flex flex-col gap-2 ">
                     <label
-                      className="text-xl font-medium "
+                      className="text-base font-semibold "
                       htmlFor="Description"
                     >
                       Description:
@@ -64,118 +73,56 @@ const Best = ({ placeholder }) => {
                     />
                   </div>
                 </div>
-                <div className="flex  w-full  mx-auto items-center justify-center mt-12  gap-12">
-                  {/* image1 */}
+                  {/* Image */}
                   <div>
                     {" "}
-                    <h1 className="text-xl font-semibold"> Image1:</h1>
+                    <h1 className="text-base font-semibold"> Image:</h1>
                   </div>
 
-                  <label htmlFor="image1">
-                    {values.Image1.length < 1 ? (
-                      <div className="flex items-center justify-center  bg-gray-200  h-24 w-24">
+                  <label htmlFor="image">
+                    {values.Image.length < 1 ? (
+                      <div className="flex items-center justify-center  bg-gray-200  h-44 w-1/2">
                         {" "}
                         <MdOutlineBrowserUpdated />
                       </div>
                     ) : (
                       <div>
                         <img
-                          src={URL.createObjectURL(values.Image1)}
-                          className="h-24 w-24"
+                          src={URL.createObjectURL(values.Image)}
+                          className="h-44 w-1/2"
                         />
                       </div>
                     )}
                   </label>
                   <input
                     onChange={(e) => {
-                      setFieldValue("Image1", e.target.files[0]);
+                      setFieldValue("Image", e.target.files[0]);
                       console.log(e.target.files);
                     }}
                     type="file"
-                    id="image1"
-                    name="image1"
+                    id="image"
+                    name="image"
                     className="hidden"
                     accept=".jpg"
                   />
 
-                  {/* Image2 */}
-                  <div>
-                    {" "}
-                    <h1 className="text-xl font-semibold"> Image2:</h1>
-                  </div>
-
-                  <label htmlFor="image2">
-                    {values.Image2.length < 1 ? (
-                      <div className="flex items-center justify-center  bg-gray-200  h-24 w-24">
-                        {" "}
-                        <MdOutlineBrowserUpdated />
-                      </div>
-                    ) : (
-                      <div>
-                        <img
-                          src={URL.createObjectURL(values.Image2)}
-                          className="h-24 w-24"
-                        />
-                      </div>
-                    )}
-                  </label>
-                  <input
-                    onChange={(e) => {
-                      setFieldValue("Image2", e.target.files[0]);
-                      console.log(e.target.files);
-                    }}
-                    type="file"
-                    id="image2"
-                    name="image2"
-                    className="hidden"
-                    accept=".jpg"
-                  />
-
-                  {/* `Image3` */}
-                  <div>
-                    {" "}
-                    <h1 className="text-xl font-semibold"> Image3:</h1>
-                  </div>
-
-                  <label htmlFor="image3">
-                    {values.Image3.length < 1 ? (
-                      <div className="flex items-center justify-center  bg-gray-200  h-24 w-24">
-                        {" "}
-                        <MdOutlineBrowserUpdated />
-                      </div>
-                    ) : (
-                      <div>
-                        <img
-                          src={URL.createObjectURL(values.Image3)}
-                          className="h-24 w-24"
-                        />
-                      </div>
-                    )}
-                  </label>
-                  <input
-                    onChange={(e) => {
-                      setFieldValue("Image3", e.target.files[0]);
-                      console.log(e.target.files);
-                    }}
-                    type="file"
-                    id="image3"
-                    name="image3"
-                    className="hidden"
-                    accept=".jpg"
-                  />
-                </div>
-                <div className="flex items-center justify-center">
+                 
+                <div className="">
                   <button
                     type="button"
-                    className="text-green-500 border border-black rounded-lg w-fit h-fit cursor-pointer p-2 capitalize mt-2"
+                    className="text-green-500 text-base hover:bg-green-500 
+                    hover:text-white transition-all delay-75 duration-700 
+                    ease-in-out border border-green-500 rounded-lg w-fit h-fit 
+                    cursor-pointer p-2  mt-2"
                   >
-                    Submit
+                    Save Changes
                   </button>
                 </div>
               </Form>
             );
           }}
         </Formik>
+       </div>
       </div>
     </div>
   );
