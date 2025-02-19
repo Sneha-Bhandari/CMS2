@@ -1,12 +1,11 @@
 import React from 'react'
-import Banner from '../Component/PageComponent/Services/Banner'
-import ServicesDetail from '../Component/PageComponent/Services/ServicesDetail'
+
+import ServicesTitle from '../Component/PageComponent/Services/ServicesTitle'
 
 const Services = () => {
   return (
-    <div>
-      <Banner/>
-      <ServicesDetail/>
+    <div className='h-fit w-full'>
+      <div><ServicesTitle/></div>
     </div>
   )
 }

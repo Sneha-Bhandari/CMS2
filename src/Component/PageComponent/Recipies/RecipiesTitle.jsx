@@ -1,27 +1,19 @@
 import React from "react";
 import { Formik, Form, Field } from "formik";
 import { MdOutlineBrowserUpdated } from "react-icons/md";
-import JoditEditor from "jodit-react";
-import { useState, useRef, useMemo } from "react";
 
-const Blog = ({ placeholder }) => {
-    const editor = useRef(null);
-  const [content, setContent] = useState("");
 
-  const config = useMemo(
-    () => ({
-      readonly: false, // all options from https://xdsoft.net/jodit/docs/,
-      placeholder: placeholder || "Start typings...",
-    }),
-    [placeholder]
-  );
+
+const RecipiesTitle = () => {
+
+ 
   return (
     <div className="h-full w-full ">
       <div className="grid py-10 px-3 grid-cols-5 gap-6 ">
         <div className="flex flex-col pt-5  ">
-          <h1 className="font-semibold text-xl">About Blog</h1>
+          <h1 className="font-semibold text-xl"> Recipies Title Section</h1>
           <h2 className="text-gray-400 text-sm">
-            Image, Title, Date, Description
+            Image, Title, SubTitle
           </h2>
         </div>
         <div className="col-span-4 border border-gray-200 ">
@@ -29,8 +21,8 @@ const Blog = ({ placeholder }) => {
             initialValues={{
               Image: "",
               Title: "",
-              Date: "",
-              Description: "",
+              Subtitle: "",
+              
             }}
           >
             {({ setFieldValue, values }) => {
@@ -44,7 +36,7 @@ const Blog = ({ placeholder }) => {
                     <div className="flex flex-col gap-4">
                       <h1 className="font-semibold text-base"> Image</h1>
 
-                      <label htmlFor="Image">
+                      <label htmlFor="Images">
                         {values.Image.length < 1 ? (
                           <div className="flex items-center justify-center  bg-gray-200  h-44 w-1/2">
                             {" "}
@@ -54,7 +46,7 @@ const Blog = ({ placeholder }) => {
                           <div>
                             <img
                               src={URL.createObjectURL(values.Image)}
-                              className="h-1/2 w-1/2"
+                              className="h-44 w-1/2"
                             />
                           </div>
                         )}
@@ -65,8 +57,8 @@ const Blog = ({ placeholder }) => {
                           console.log(e.target.files);
                         }}
                         type="file"
-                        id="Image"
-                        name="Image"
+                        id="Images"
+                        name="Images"
                         className="hidden"
                         accept=".jpg"
                       />
@@ -78,38 +70,22 @@ const Blog = ({ placeholder }) => {
                     <Field
                       type="text"
                       name="Title"
-                      placeholder="Blog Title"
+                      placeholder="Recipies Title"
                       className=" border border-gray-400  rounded-sm outline-none p-2 "
                     />
                     </div>
                     <div className="flex flex-col gap-4">
-                    <label className="text-base font-semibold" htmlFor="Date">
-                      Date:
+                    <label className="text-base font-semibold" htmlFor="Subtitle">
+                      Subtitle:
                     </label>
                     <Field
-                      type="date"
-                      name="Date"
-                      placeholder="Blog Date"
+                      type="text"
+                      name="Subtitle"
+                      placeholder="Recipies Subtitle"
                       className=" border border-gray-400  rounded-sm outline-none p-2 "
                     />
                     </div>
-                    <div className="flex flex-col gap-4 ">
-                    <label
-                      className="text-base font-semibold "
-                      htmlFor="Description"
-                    >
-                      Description:
-                    </label>
-                    <JoditEditor
-                      ref={editor}
-                      value={content}
-                      config={config}
-                      tabIndex={1} // tabIndex of textarea
-                      onBlur={(newContent) => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
-                      onChange={(newContent) => {}}
-                      className="bg-red-200 "
-                    />
-                    </div>
+                    
                   </div>
                   <div className="">
                   <button
@@ -132,4 +108,4 @@ const Blog = ({ placeholder }) => {
   );
 };
 
-export default Blog;
+export default RecipiesTitle;
