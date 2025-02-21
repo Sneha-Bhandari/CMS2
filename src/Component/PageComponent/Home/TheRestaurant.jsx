@@ -5,22 +5,22 @@ import JoditEditor from "jodit-react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 
 import { MdOutlineBrowserUpdated } from "react-icons/md";
-import { use } from "react";
+
 
 const TheRestaurant = ({ placeholder }) => {
-  const [openEdit, setOpenEdit] = useState(false);
-  const [openDelete, setOpenDelete] = useState(false);
-  const [openPreview, setOpenPreview] = useState(false);
+  // const [openEdit, setOpenEdit] = useState(false);
+  // const [openDelete, setOpenDelete] = useState(false);
+  // const [openPreview, setOpenPreview] = useState(false);
 
-  const details = [
-    {
-      title: "The Restautrant",
-      description:
-        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis maiores soluta officia quos, animi neque eius assumenda culpa distinctio libero,Amet voluptate harum ipsam alias sit totam soluta impedit.",
-      image: "1.jpg",
-      signature: "1.jpg",
-    },
-  ];
+  // const details = [
+  //   {
+  //     title: "The Restautrant",
+  //     description:
+  //       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis maiores soluta officia quos, animi neque eius assumenda culpa distinctio libero,Amet voluptate harum ipsam alias sit totam soluta impedit.",
+  //     image: "1.jpg",
+  //     signature: "1.jpg",
+  //   },
+  // ];
 
   const editor = useRef(null);
   const [content, setContent] = useState("");
@@ -36,7 +36,7 @@ const TheRestaurant = ({ placeholder }) => {
     <div className="h-full bg-white w-full">
       <div className="grid py-10 px-3 grid-cols-5 gap-6 ">
         <div className="flex flex-col pt-5  ">
-          <h1 className="font-semibold text-xl">About Restaurant</h1>
+          <h1 className="font-semibold text-xl">Restaurant Section</h1>
           <h2 className="text-gray-400 text-sm">
             Title, Description, Image, Signature
           </h2>

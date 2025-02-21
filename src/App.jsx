@@ -7,6 +7,7 @@ import Services from './Pages/Services'
 import About from './Pages/About'
 import News from './Pages/News'
 import Contact from './Pages/Contact'
+import Menu from './Component/PageComponent/OurMenu/menu'
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
        <Route path='/About' element={<About/>}></Route>
        <Route path='/News' element={<News/>}></Route>
        <Route path='/Contact' element={<Contact/>}></Route>
+       <Route path='/Menu' element={<Menu/>}></Route>
         </Route>
       </Routes>
    

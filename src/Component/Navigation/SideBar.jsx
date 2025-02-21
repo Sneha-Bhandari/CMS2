@@ -18,17 +18,18 @@ const SideBar = () => {
   ];
 
   const nextnav = [
-    { title: "Home", path: "/", icons: <FaHome /> },
-    { title: "Recipies", path: "/Recipies", icons: <BiFoodMenu /> },
-    { title: "Services", path: "/Services", icons: <GrServices /> },
-    { title: "About", path: "/About", icons: <GiTempleGate /> },
-    { title: "News", path: "/News", icons: <MdOutlineNewspaper /> },
-    { title: "Contact", path: "/Contact", icons: <IoIosContact /> },
+    {title:"Our Menu", path:"/Menu", icons:<FaHome /> },
+    // { title: "Home", path: "/", icons: <FaHome /> },
+    // { title: "Recipies", path: "/Recipies", icons: <BiFoodMenu /> },
+    // { title: "Services", path: "/Services", icons: <GrServices /> },
+    // { title: "About", path: "/About", icons: <GiTempleGate /> },
+    // { title: "News", path: "/News", icons: <MdOutlineNewspaper /> },
+    // { title: "Contact", path: "/Contact", icons: <IoIosContact /> },
   ];
 
   return (
-    <div className="h-full  bg-gray-200 ">
-      <div className="flex flex-col gap-5 px-12  space-x-4 p-4 overflow-hidden">
+    <div className="h-full overflow-scroll bg-gray-200 ">
+      <div className="flex flex-col gap-5 px-12  space-x-4 p-4">
         <div className="font-medium text-orange-400 text-xl underline ">
           Pages
         </div>

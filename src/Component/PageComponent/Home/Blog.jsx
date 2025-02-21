@@ -19,7 +19,7 @@ const Blog = ({ placeholder }) => {
     <div className="h-full w-full ">
       <div className="grid py-10 px-3 grid-cols-5 gap-6 ">
         <div className="flex flex-col pt-5  ">
-          <h1 className="font-semibold text-xl">About Blog</h1>
+          <h1 className="font-semibold text-xl">Blog Section</h1>
           <h2 className="text-gray-400 text-sm">
             Image, Title, Date, Description
           </h2>
@@ -54,7 +54,7 @@ const Blog = ({ placeholder }) => {
                           <div>
                             <img
                               src={URL.createObjectURL(values.Image)}
-                              className="h-1/2 w-1/2"
+                              className="h-44 w-1/2"
                             />
                           </div>
                         )}

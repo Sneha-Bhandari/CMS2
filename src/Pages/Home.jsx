@@ -12,6 +12,7 @@ const Home = () => {
       <TheRestaurant/>
       <Best/>
       <Blog/>
+      
     </div>
   );
 };

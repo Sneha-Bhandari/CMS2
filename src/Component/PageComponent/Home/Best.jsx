@@ -23,7 +23,7 @@ const Best = ({ placeholder }) => {
         <div className="flex flex-col pt-5">
 
           <div className="text-xl font-semibold">
-          The Best & Good: 
+        Best Section
           </div>
           <div className="text-sm text-gray-500">Title , Description, Image</div>
         </div>
