@@ -19,7 +19,7 @@ const SideBar = () => {
 
   const nextnav = [
     {title:"Our Menu", path:"/Menu", icons:<FaHome /> },
-    // { title: "Home", path: "/", icons: <FaHome /> },
+    { title: "Testimony", path: "/PostTestimony", icons: <BiFoodMenu /> },
     // { title: "Recipies", path: "/Recipies", icons: <BiFoodMenu /> },
     // { title: "Services", path: "/Services", icons: <GrServices /> },
     // { title: "About", path: "/About", icons: <GiTempleGate /> },

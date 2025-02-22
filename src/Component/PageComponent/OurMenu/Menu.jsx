@@ -9,7 +9,7 @@ import GetMenu from "./GetMenu";
 
 function Menu({ placeholder }) {
   const editor = useRef(null);
-  const [content, setContent] = useState("");
+  // const [content, setContent] = useState("");
 
   const Schemas = yup.object().shape({
     Title: yup.string().required("Title is required!!"),
@@ -182,7 +182,7 @@ function Menu({ placeholder }) {
             )}
           </Formik>
          
-            <GetMenu/>
+            < GetMenu/>
         
         </div>
       </div>

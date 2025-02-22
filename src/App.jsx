@@ -8,6 +8,7 @@ import About from './Pages/About'
 import News from './Pages/News'
 import Contact from './Pages/Contact'
 import Menu from './Component/PageComponent/OurMenu/menu'
+import PostTestimony from './Component/PageComponent/Testimony/PostTestimony'
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
        <Route path='/News' element={<News/>}></Route>
        <Route path='/Contact' element={<Contact/>}></Route>
        <Route path='/Menu' element={<Menu/>}></Route>
+       <Route path='/PostTestimony' element={<PostTestimony/>}></Route>
         </Route>
       </Routes>
    
