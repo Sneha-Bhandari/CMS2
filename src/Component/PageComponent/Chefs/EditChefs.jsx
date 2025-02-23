@@ -1,36 +1,19 @@
-import React, { useState, useEffect, useRef, useMemo } from "react";
+import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from "yup";
-import JoditEditor from "jodit-react";
 
 
-
-const EditTestimony = ({ setEdit, placeholder }) => {
-  const editor = useRef(null);
-
-  const config = useMemo(
-    () => ({
-      readonly: false,
-      placeholder: placeholder || "Start typings...",
-    }),
-    [placeholder]
-  );
+const EditChefs = ({ setEdit, placeholder }) => {
 
   const Schemas = yup.object().shape({
-    Title: yup.string().required("Title is required!!"),
-    Description: yup.string().required("Description is required!!"),
+
     Image: yup.mixed().required("Image is required!!"),
     Name: yup.string().required("Name is required!!"),
     Post: yup.string().required("Post is required")
   });
 
   const Info = [
-    {
-      label: "Title", name: "Title", type: "text",placeholder: "Enter Title ",
-    },
-    {
-      label: "Description", name: "Description", type: "text", placeholder: "Enter Description",
-    },
+   
     { 
       label: "Image", name: "Image", type: "file", placeholder: "Enter Image" 
     },
@@ -43,7 +26,7 @@ const EditTestimony = ({ setEdit, placeholder }) => {
   ];
 
   return (
-    <div   className="w-1/2  ">
+    <div   className="w-3/4   ">
       <div className="w-full h-full ">
         <Formik
           initialValues={{
@@ -61,41 +44,12 @@ const EditTestimony = ({ setEdit, placeholder }) => {
           }}
         >
           {({ setFieldValue, values }) => (
-            <Form className="w-full h-fit ">
+            <Form className="w-1/2 h-fit ">
               
               <div className=" bg-gray-100 w-full flex flex-col gap-2 p-4 shadow-lg rounded-lg" >
               <div className="font-medium text-xl text-green-500">Edit Content</div>
                 {Info.map((val, i) => {
-                  if (val.name == "Description") {
-                    return (
-                        <div className="flex gap-2 flex-col  ">
-                        <label
-                          className="text-base font-semibold "
-                          htmlFor="Description"
-                        >
-                          Description:
-                        </label>
-                        <JoditEditor
-                          ref={editor}
-                          value={values.Description} // Bind Formik's value
-                          config={config}
-                          tabIndex={1}
-                          onBlur={(newContent) =>
-                            setFieldValue("Description", newContent)
-                          } // Update Formik
-                          onChange={(newContent) =>
-                            setFieldValue("Description", newContent)
-                          }
-                          className=""
-                        />
-                        <ErrorMessage
-                          name={val.name}
-                          component={"div"}
-                          className="text-red-700"
-                        />
-                      </div>
-                    );
-                  } else if (val.type == "file") {
+                  if (val.type == "file") {
                     return (
                         <div className="flex flex-col gap-2 items-start">
                         <h1 className="font-semibold text-base">{val.label}</h1>
@@ -158,4 +112,4 @@ const EditTestimony = ({ setEdit, placeholder }) => {
   );
 };
 
-export default EditTestimony;
+export default EditChefs;

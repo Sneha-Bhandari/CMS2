@@ -9,6 +9,7 @@ import News from './Pages/News'
 import Contact from './Pages/Contact'
 import Menu from './Component/PageComponent/OurMenu/menu'
 import PostTestimony from './Component/PageComponent/Testimony/PostTestimony'
+import PostChefs from './Component/PageComponent/Chefs/PostChefs'
 
 function App() {
 
@@ -27,6 +28,9 @@ function App() {
        <Route path='/Contact' element={<Contact/>}></Route>
        <Route path='/Menu' element={<Menu/>}></Route>
        <Route path='/PostTestimony' element={<PostTestimony/>}></Route>
+       <Route path='/PostChefs' element={<PostChefs/>}></Route>
+
+
         </Route>
       </Routes>
    

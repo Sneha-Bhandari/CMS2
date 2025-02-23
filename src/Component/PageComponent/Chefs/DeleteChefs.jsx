@@ -1,6 +1,6 @@
 import React from "react";
 
-const DeleteTestimony = ({ setDeletes }) => {
+const DeleteChefs = ({ setDeletes }) => {
   return (
     <div className="fixed inset-0  bg-opacity-40  h-screen flex justify-center items-center w-screen z-10">
       <div className="bg-gray-200 p-12 flex flex-col gap-6  rounded-lg shadow-lg ">
@@ -28,4 +28,4 @@ const DeleteTestimony = ({ setDeletes }) => {
   );
 };
 
-export default DeleteTestimony;
+export default DeleteChefs;

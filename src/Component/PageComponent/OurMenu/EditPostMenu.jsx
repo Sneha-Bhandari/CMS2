@@ -48,13 +48,10 @@ const EditPostMenu = ({ setEdit, placeholder }) => {
             Image: "",
           }}
           validationSchema={Schemas}
-            //  onSubmit={(values) => console.log(values)  // }
-            onSubmit={(values, { setSubmitting }) => {
+          onSubmit={(values) => {
+            console.log(values);
            
-
-              console.log(values);
-              // setSubmitting(false);
-            }}
+          }}
         >
           {({ setFieldValue, values }) => (
             <Form className="w-full h-fit ">

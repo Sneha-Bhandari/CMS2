@@ -1,48 +1,24 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { useState, useRef, useMemo } from "react";
-import JoditEditor from "jodit-react";
 import { MdOutlineBrowserUpdated } from "react-icons/md";
 // import axios from "axios";
 import * as yup from "yup";
-import GetTestimony from "./GetTestimony";
+import GetChefs from "./GetChefs";
 
-function PostTestimony({ placeholder }) {
-  const editor = useRef(null);
-
+function PostChefs() {
+ 
   const Schemas = yup.object().shape({
-    Title: yup.string().required("Title is required!!"),
-    Description: yup.string().required("Description is required!!"),
     Image: yup.mixed().required("Image is required!!"),
-    Name: yup.string().required("Amount is required!!"),
+    Name: yup.string().required("Name is required!!"),
     Post: yup.string().required("Post is required")
   });
 
-  const config = useMemo(
-    () => ({
-      readonly: false,
-      placeholder: placeholder || "Start typings...",
-    }),
-    [placeholder]
-  );
   const Info = [
     {
-      label: "Title",
-      name: "Title",
-      type: "text",
-      placeholder: "Enter Title ",
-    },
-    {
-      label: "Description",
-      name: "Description",
-      type: "text",
-      placeholder: "Enter  Description",
-    },
-    {
-      label: "Image",
-      name: "Image",
-      type: "file",
-      placeholder: "Enter Image",
+        label: "Image",
+        name: "Image",
+        type: "file",
+        placeholder:""
     },
     {
       label: "Name",
@@ -55,27 +31,25 @@ function PostTestimony({ placeholder }) {
       name: "Post",
       type: "text",
       placeholder: "Enter Post",
-    },
-   
+    }, 
   ];
 
   return (
     <div className="h-fit w-full ">
       <div className=" grid grid-cols-5 gap-6  py-10 px-3 ">
         <div className="flex flex-col pt-5 ">
-          <div className="font-semibold text-xl">Testimony Section</div>
+          <div className="font-semibold text-xl">Chefs </div>
           <p className="text-gray-400 text-sm">
-            Title, Description, Image, Name, Post
+            Image Name, Post
           </p>
         </div>
         <div className="col-span-4 border border-gray-200  ">
           <Formik
             initialValues={{
-              Title: "",
-              Description: "",
-              Image: "",
-              Name:"",
-              Post:"",
+                Image: "",
+                Name:"",
+                Post:"",
+              
             }}
             validationSchema={Schemas}
             onSubmit={(values) => {
@@ -86,41 +60,11 @@ function PostTestimony({ placeholder }) {
             {({ setFieldValue, values }) => (
               <Form className="flex flex-col gap-6 px-6 py-6">
                 {Info.map((val, i) => {
-                  if (val.name == "Description") {
-                   
-                    return (
-                      <div className="flex gap-2 flex-col  ">
-                      <label
-                        className="text-base font-semibold "
-                        htmlFor="Description"
-                      >
-                        Description:
-                      </label>
-                      <JoditEditor
-                        ref={editor}
-                        value={values.Description} // Bind Formik's value
-                        config={config}
-                        tabIndex={1}
-                        onBlur={(newContent) =>
-                          setFieldValue("Description", newContent)
-                        } // Update Formik
-                        onChange={(newContent) =>
-                          setFieldValue("Description", newContent)
-                        }
-                        className=""
-                      />
-                      <ErrorMessage
-                        name={val.name}
-                        component={"div"}
-                        className="text-red-700"
-                      />
-                    </div>
-                    );
-                  } else if (val.type == "file") {
+                if (val.type == "file") {
                     return (
                       <div className="flex flex-col gap-2 items-start">
                         <h1 className="font-semibold text-base">{val.label}</h1>
-                        <label htmlFor="TestimonyImage" className="cursor-pointer">
+                        <label htmlFor="ChefsImage" className="cursor-pointer">
                           {values.Image ? (
                             <img
                               src={URL.createObjectURL(values.Image)}
@@ -134,7 +78,7 @@ function PostTestimony({ placeholder }) {
                         </label>
                         <input
                           type="file"
-                          id="TestimonyImage"
+                          id="ChefsImage"
                           className="hidden"
                           accept=".jpg,.jpeg,.png"
                           onChange={(e) =>
@@ -187,7 +131,7 @@ function PostTestimony({ placeholder }) {
             )}
           </Formik>
          
-            <GetTestimony/>
+            <GetChefs/>
         
         </div>
       </div>
@@ -196,5 +140,5 @@ function PostTestimony({ placeholder }) {
   );
 }
 
-export default PostTestimony;
+export default PostChefs;
 

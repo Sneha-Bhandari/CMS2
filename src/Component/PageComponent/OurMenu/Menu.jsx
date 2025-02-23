@@ -72,12 +72,9 @@ function Menu({ placeholder }) {
               Image: "",
             }}
             validationSchema={Schemas}
-            // onSubmit={(values) => console.log(values)}
-            onSubmit={(values, { setSubmitting }) => {
-            alert ("Submitted")
-
+            onSubmit={(values) => {
               console.log(values);
-              setSubmitting(false);
+             
             }}
           >
             {({ setFieldValue, values }) => (
