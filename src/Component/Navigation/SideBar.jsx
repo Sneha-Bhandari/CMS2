@@ -21,7 +21,7 @@ const SideBar = () => {
     {title:"Menu", path:"/Menu", icons:<FaHome /> },
     { title: "Testimony", path: "/PostTestimony", icons: <BiFoodMenu /> },
     { title: "Chefs", path: "/PostChefs", icons: <IoIosContact /> },
-    // { title: "Services", path: "/Services", icons: <GrServices /> },
+    { title: "Items", path: "/PostItem", icons: <GrServices /> },
     // { title: "About", path: "/About", icons: <GiTempleGate /> },
     // { title: "News", path: "/News", icons: <MdOutlineNewspaper /> },
     // { title: "Contact", path: "/Contact", icons: <IoIosContact /> },

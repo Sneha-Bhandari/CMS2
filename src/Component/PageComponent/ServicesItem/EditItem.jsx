@@ -3,8 +3,9 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from "yup";
 import JoditEditor from "jodit-react";
 
-const EditPostMenu = ({ setEdit,blured, placeholder }) => {
-  const [Loading, setLoading] = useState(false);
+
+
+const EditItem = ({ setEdit, placeholder }) => {
   const editor = useRef(null);
 
   const config = useMemo(
@@ -16,37 +17,36 @@ const EditPostMenu = ({ setEdit,blured, placeholder }) => {
   );
 
   const Schemas = yup.object().shape({
+      Icon: yup.mixed().required("Icon is required!!"),
     Title: yup.string().required("Title is required!!"),
     Description: yup.string().required("Description is required!!"),
-    Amount: yup.string().required("Amount is required!!"),
-    Image: yup.mixed().required("Image is required!!"),
+   
   });
 
   const Info = [
+    { 
+        label: "Icon", name: "Icon", type: "file", placeholder: "" 
+      },
     {
       label: "Title", name: "Title", type: "text",placeholder: "Enter Title ",
     },
     {
-      label: "Description", name: "Description", type: "text", placeholder: "Enter  Description",
+      label: "Description", name: "Description", type: "text", placeholder: "Enter Description",
     },
-    {
-      label: "Amount", name: "Amount", type: "text", placeholder: "Enter Amount",
-    },
-    { 
-      label: "Image", name: "Image", type: "file", placeholder: "Enter Image" 
-    }
+   
   ];
 
   return (
-    <div onClick={blured}   className="w-full  flex items-center justify-center ">
-      <div onClick={(e)=> {e.stopPropagation()}} className="w-1/2 h-full ">
+    <div   className="w-1/2  ">
+      <div className="w-full h-full ">
         <Formik
           initialValues={{
+            Icon: "",
             Title: "",
             Description: "",
-            Amount: "",
-            Image: "",
+           
           }}
+          
           validationSchema={Schemas}
           onSubmit={(values) => {
             console.log(values);
@@ -59,29 +59,9 @@ const EditPostMenu = ({ setEdit,blured, placeholder }) => {
               <div className=" bg-gray-100 w-full flex flex-col gap-2 p-4 shadow-lg rounded-lg" >
               <div className="font-medium text-xl text-green-500">Edit Content</div>
                 {Info.map((val, i) => {
-                  if (val.name == "Title" || val.name == "Amount") {
+                  if (val.name == "Description") {
                     return (
-                      <div key={i} className="flex flex-col gap-1">
-                        <label className="font-semibold text-base">
-                          {val.label}
-                        </label>
-                        <Field
-                          name={val.name}
-                          type={val.type}
-                          placeholder={val.placeholder}
-                          className=" border border-gray-400 w-full rounded-sm outline-none p-2  "
-                        />
-
-                        <ErrorMessage
-                          name={val.name}
-                          component={"div"}
-                          className="text-red-700 "
-                        />
-                      </div>
-                    );
-                  } else if (val.name == "Description") {
-                    return (
-                      <div className="flex gap-2 flex-col  ">
+                        <div className="flex gap-2 flex-col  ">
                         <label
                           className="text-base font-semibold "
                           htmlFor="Description"
@@ -90,15 +70,16 @@ const EditPostMenu = ({ setEdit,blured, placeholder }) => {
                         </label>
                         <JoditEditor
                           ref={editor}
-                          value={values.Description} 
+                          value={values.Description} // Bind Formik's value
                           config={config}
                           tabIndex={1}
                           onBlur={(newContent) =>
                             setFieldValue("Description", newContent)
-                          }
+                          } // Update Formik
                           onChange={(newContent) =>
                             setFieldValue("Description", newContent)
                           }
+                          className=""
                         />
                         <ErrorMessage
                           name={val.name}
@@ -107,9 +88,9 @@ const EditPostMenu = ({ setEdit,blured, placeholder }) => {
                         />
                       </div>
                     );
-                  } else {
+                  } else if (val.type == "file") {
                     return (
-                      <div className="flex flex-col gap-2 items-start">
+                        <div className="flex flex-col gap-2 items-start">
                         <h1 className="font-semibold text-base">{val.label}</h1>
                         <label
                           htmlFor="MenuImageinside"
@@ -134,6 +115,26 @@ const EditPostMenu = ({ setEdit,blured, placeholder }) => {
                         <ErrorMessage name={val.name}  component={"div"} className="text-red-700 "/>
                       </div>
                     );
+                  } else {
+                    return (
+                        <div key={i} className="flex flex-col gap-2">
+                        <label className="font-semibold text-base">
+                          {val.label}
+                        </label>
+                        <Field
+                          name={val.name}
+                          type={val.type}
+                          placeholder={val.placeholder}
+                          className=" border border-gray-400  rounded-sm outline-none p-2  "
+                        />
+
+                        <ErrorMessage
+                          name={val.name}
+                          component={"div"}
+                          className="text-red-700 "
+                        />
+                      </div>
+                    );
                   }
                 })}
               <div className="flex gap-2  justify-start">
@@ -150,4 +151,4 @@ const EditPostMenu = ({ setEdit,blured, placeholder }) => {
   );
 };
 
-export default EditPostMenu;
+export default EditItem;

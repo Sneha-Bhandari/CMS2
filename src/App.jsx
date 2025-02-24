@@ -10,6 +10,7 @@ import Contact from './Pages/Contact'
 import Menu from './Component/PageComponent/OurMenu/menu'
 import PostTestimony from './Component/PageComponent/Testimony/PostTestimony'
 import PostChefs from './Component/PageComponent/Chefs/PostChefs'
+import PostItem from './Component/PageComponent/ServicesItem/PostItem'
 
 function App() {
 
@@ -29,6 +30,8 @@ function App() {
        <Route path='/Menu' element={<Menu/>}></Route>
        <Route path='/PostTestimony' element={<PostTestimony/>}></Route>
        <Route path='/PostChefs' element={<PostChefs/>}></Route>
+       <Route path='/PostItem' element={<PostItem/>}></Route>
+
 
 
         </Route>
