@@ -26,8 +26,8 @@ const EditChefs = ({ setEdit, placeholder }) => {
   ];
 
   return (
-    <div   className="w-3/4   ">
-      <div className="w-full h-full ">
+    
+      <div className="w-full h-full flex items-center justify-center">
         <Formik
           initialValues={{
             Title: "",
@@ -108,7 +108,7 @@ const EditChefs = ({ setEdit, placeholder }) => {
           )}
         </Formik>
       </div>
-    </div>
+ 
   );
 };
 

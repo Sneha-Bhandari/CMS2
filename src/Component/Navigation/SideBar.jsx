@@ -18,18 +18,15 @@ const SideBar = () => {
   ];
 
   const nextnav = [
-    {title:"Menu", path:"/Menu", icons:<FaHome /> },
+    { title: "Menu", path: "/Menu", icons: <FaHome /> },
     { title: "Testimony", path: "/PostTestimony", icons: <BiFoodMenu /> },
     { title: "Chefs", path: "/PostChefs", icons: <IoIosContact /> },
     { title: "Items", path: "/PostItem", icons: <GrServices /> },
-    // { title: "About", path: "/About", icons: <GiTempleGate /> },
-    // { title: "News", path: "/News", icons: <MdOutlineNewspaper /> },
-    // { title: "Contact", path: "/Contact", icons: <IoIosContact /> },
   ];
 
   return (
-    <div className="h-full overflow-scroll bg-gray-200 ">
-      <div className="flex flex-col gap-5 px-12  space-x-4 p-4">
+    <div className="h-full w-full md:block md:w-64 overflow-scroll bg-gray-200 ">
+      <div className="flex flex-col gap-5 md:px-12  px-2 md:space-x-4 p-4">
         <div className="font-medium text-orange-400 text-xl underline ">
           Pages
         </div>
@@ -38,30 +35,30 @@ const SideBar = () => {
             <div className="flex gap-3  ">
               <div className="py-1">{val.icons}</div>
               <div>
-                <Link to={val.path}>{val.title}</Link>
+                <Link  to={val.path}>{val.title}</Link>
               </div>
             </div>
           </div>
         ))}
-        
+
         <div className="font-medium text-orange-400 text-xl underline">
           Layout
         </div>
-          </div>
-        <div className="flex flex-col gap-5 px-12  space-x-4 p-4  ">
-          {nextnav.map((val, i) => {
-            return (
-              <div key={i} className="text-black text-base  hover:underline ">
-                <div className="flex gap-3  ">
-                  <div className="py-1">{val.icons}</div>
-                  <div>
-                    <Link to={val.path}>{val.title}</Link>
-                  </div>
+      </div>
+      <div className="flex flex-col gap-5 md:px-12 px-2  md:space-x-4 md:p-4   ">
+        {nextnav.map((val, i) => {
+          return (
+            <div key={i} className="text-black text-base  hover:underline ">
+              <div className="flex gap-3  ">
+                <div className="py-1">{val.icons}</div>
+                <div>
+                  <Link to={val.path}>{val.title}</Link>
                 </div>
               </div>
-            );
-          })}
-        </div>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };

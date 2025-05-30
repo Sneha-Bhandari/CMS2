@@ -3,7 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from "yup";
 import JoditEditor from "jodit-react";
 
-const EditPostMenu = ({ setEdit,blured, placeholder }) => {
+const EditPostMenu = ({ setEdit,blured, placeholder}) => {
   const [Loading, setLoading] = useState(false);
   const editor = useRef(null);
 
@@ -138,7 +138,7 @@ const EditPostMenu = ({ setEdit,blured, placeholder }) => {
                 })}
               <div className="flex gap-2  justify-start">
                 <button  type="submit" className="cursor-pointer bg-green-600 text-white px-4 py-2 rounded" >  Save Changes</button>
-                <button onClick={() => setEdit(false)} type="button" className="cursor-pointer bg-red-600 text-white px-4 py-2 rounded" >  Cancel</button>
+                <button   onClick={blured}  type="button" className="cursor-pointer bg-red-600 text-white px-4 py-2 rounded" >  Cancel</button>
               </div>
 
              </div>
