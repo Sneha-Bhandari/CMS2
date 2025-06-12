@@ -74,7 +74,6 @@ function Menu({ placeholder }) {
             validationSchema={Schemas}
             onSubmit={(values) => {
               console.log(values);
-             
             }}
           >
             {({ setFieldValue, values }) => (
@@ -178,12 +177,10 @@ function Menu({ placeholder }) {
               </Form>
             )}
           </Formik>
-         
-            < GetMenu/>
-        
+
+          <GetMenu />
         </div>
       </div>
-       
     </div>
   );
 }

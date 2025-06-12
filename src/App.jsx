@@ -6,7 +6,7 @@ import Services from "./Pages/Services";
 import About from "./Pages/About";
 import News from "./Pages/News";
 import Contact from "./Pages/Contact";
-import Menu from "./Component/PageComponent/OurMenu/menu";
+import Menu from "./Component/PageComponent/OurMenu/Menu";
 import PostTestimony from "./Component/PageComponent/Testimony/PostTestimony";
 import PostChefs from "./Component/PageComponent/Chefs/PostChefs";
 import PostItem from "./Component/PageComponent/ServicesItem/PostItem";
